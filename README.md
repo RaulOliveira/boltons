@@ -29,6 +29,9 @@ Install dependencies:
 > docker-compose exec app composer install
 
 Create database:
+> docker-compose exec app bin/console doctrine:database:create
+
+Run migrations:
 > docker-compose exec app bin/console doctrine:migrations:migrate --no-interaction
 
 Make the first sync of NFEs:
