@@ -1,0 +1,7 @@
+twig:
+    paths:
+    #   # '%kernel.project_dir%/src/Presentation/Web/Store/Templates': Store
+    #   # '%kernel.project_dir%/src/Presentation/Web/Admin/Templates': Admin
+    #   # '%kernel.project_dir%/src/Presentation/Web/Adminsaas/Templates': Adminsaas
+      '%kernel.project_dir%/src/Presentation/Common' : Common 
+    # default_path: '%kernel.project_dir%/src/Presentation'

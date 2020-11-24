@@ -1,0 +1,35 @@
+version: "3.4"
+
+volumes:
+  pgdata:
+    driver: local
+
+services:
+  app:
+    build: 
+      context: ./docker/app
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+
+  database:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      
+  server:
+    build: 
+      context: ./docker/server
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html:delegated
+      - ./docker/server/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/server/app.conf:/etc/nginx/conf.d/default.conf

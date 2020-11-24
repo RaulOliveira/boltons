@@ -1,0 +1,7 @@
+index:
+   path: /
+   controller: App\Infrastructure\Common\Http\Web\Controller\HomeController::index
+
+tax-invoice:
+  path: /api/tax-invoice/{accessKey}
+  controller: App\Infrastructure\TaxInvoice\Http\Api\Controller\TaxInvoiceController::getTaxInvoice
